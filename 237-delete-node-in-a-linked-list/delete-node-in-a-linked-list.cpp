@@ -28,15 +28,25 @@ public:
         // beforeprev->next = nullptr;
         // delete prev;
         
-        ListNode* prev = nullptr;
-        while(node->next != nullptr)
-        {
-        node->val = node->next->val;
-        prev = node;
-        node= node->next;
-        }
-        prev->next = nullptr;
-        delete node;
+        // ListNode* prev = nullptr;
+        // while(node->next != nullptr)
+        // {
+        // node->val = node->next->val;
+        // prev = node;
+        // node= node->next;
+        // }
+        // prev->next = nullptr;
+        // delete node;
 
+        ListNode* temp = node;
+        while(temp->next->next != nullptr)
+        {
+        temp->val =temp->next->val;
+        temp= temp->next;
+        }
+
+        temp->val =temp->next->val;
+        temp->next = nullptr;
+        // no need to dlete
     }
 };
