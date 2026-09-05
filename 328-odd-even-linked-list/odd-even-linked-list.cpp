@@ -17,24 +17,22 @@ public:
             return head;
         }
 
-        ListNode* t1 = head;
-        ListNode* t2 = t1->next;
-        ListNode* evenHead = t2;
-        ListNode* oddHead= nullptr;
+        ListNode* odd = head;
+        ListNode* even = head->next;
+        ListNode* evenHead = head->next;
+      
 
-        while(t1 != NULL && t2 != NULL)
+        while( even!= NULL && even->next != NULL)
         {
-            t1->next = t2->next;
-            oddHead = t1;
-            t1= t2->next;
+            odd->next = odd->next->next;
+            even->next = even->next->next;
 
-            if(t1){
-            t2->next= t1->next;
-            t2= t1->next;
-            }
+            odd= odd->next;
+            even= even->next;
+            
         }
-        if(t1) t1->next = evenHead;
-        else oddHead->next = evenHead;
+       
+        odd->next = evenHead;
 
         return head;
 
