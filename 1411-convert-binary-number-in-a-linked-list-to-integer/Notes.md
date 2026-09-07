@@ -1,1 +1,1 @@
-<h2>convert-binary-number-in-a-linked-list-to-integer Notes</h2><hr>[ Time taken: 1hr 1m 2s ]
+<h2>convert-binary-number-in-a-linked-list-to-integer Notes</h2><hr>[ Time taken: 1hr 8m 19s ]
