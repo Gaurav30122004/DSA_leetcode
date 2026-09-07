@@ -11,21 +11,30 @@
 class Solution {
 public:
     int getDecimalValue(ListNode* head) {
+        // ListNode* curr= head;
+        // int size=0;
+        // while(curr!= NULL)
+        // {
+        //     size++;
+        //     curr= curr->next;
+        // }
+        // curr= head;
+        // int n = size-1;
+        // int sum= 0;
+        // while(curr!= NULL)
+        // {
+        //     int val = (curr->val)* (int) pow(2,n) ; // remember ^ is not power
+        //     sum = sum + val;
+        //     n--;
+        //     curr= curr->next;
+        // }
+
+        // horners method exp in  note section 
         ListNode* curr= head;
-        int size=0;
+        int sum=0;
         while(curr!= NULL)
         {
-            size++;
-            curr= curr->next;
-        }
-        curr= head;
-        int n = size-1;
-        int sum= 0;
-        while(curr!= NULL)
-        {
-            int val = (curr->val)* (int) pow(2,n) ;
-            sum = sum + val;
-            n--;
+            sum = sum*2 + curr->val;
             curr= curr->next;
         }
         return sum;
