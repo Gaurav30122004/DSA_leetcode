@@ -20,7 +20,7 @@ public:
         {
             back = slow; 
             slow = slow->next;
-            if (fast->next) fast = fast->next->next;
+            fast = fast->next->next;       // for odd len ll ,jab 
         }
         back->next = slow->next;
         slow->next = nullptr;
