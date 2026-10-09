@@ -1,50 +1,40 @@
 class Solution {
 public:
     int minInsertions(string s) {
-        
-        stack<char> sto;
-        stack<char> stc;
-        int k =0;
 
-        for(int i=0; i< s.size(); i++)
+    int count =0;
+    int result = 0; // no. of insertions 
+    int i=0;
+
+    while(i< s.size())
+    {
+        char ch = s[i];
+        if(ch == '(')
         {
-            if(sto.empty() && stc.empty())
+            count++;
+            i++;
+        }
+        else{
+            if(count > 0)
             {
-                if(s[i] == ')'){
-                    sto.push('(');      // changed: inserted '('
-                    stc.push(s[i]);
-                    k++;                // changed
-                    continue;
-                }
-                else{
-                    sto.push(s[i]);
-                    continue;
-                }
+                count--;   
             }
-            else if(s[i] == ')' && !sto.empty() && !stc.empty())
-            {
-                stc.pop();
-                sto.pop();
-                continue;
+            else{
+                result++;
             }
-            else if(s[i] == ')')
+
+            if(i+1 < s.size() && s[i+1] == ')')
             {
-                // here stc is empty and sto is non-empty
-                stc.push(s[i]);
-                continue;
+                i +=2;
             }
-            else if(s[i] == '(')
-            {
-                if(!stc.empty())        // changed: pending single ')' needs a partner
-                {
-                    k++;
-                    stc.pop();
-                    sto.pop();
-                }
-                sto.push(s[i]);
-                continue;
+            else{
+                result ++;
+                i += 1;
             }
         }
-        return 2*(int)sto.size() - (int)stc.size() + k;   // changed: casts, cout removed
     }
+    return result + 2*count ;
+
+    
+    }  
 };
