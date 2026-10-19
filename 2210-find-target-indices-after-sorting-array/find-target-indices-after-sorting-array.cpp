@@ -4,13 +4,41 @@ public:
         sort(nums.begin(),nums.end());
 
         vector<int> ans;
+        int idx =0;
+        int cnt =0;
         for(int i=0; i<nums.size(); i++)
         {
-            if(nums[i] == target)
+            if (nums[i] == target)
             {
-                ans.push_back(i);
+                cnt++;
+            }
+            if(nums[i] < target)
+            {
+                idx++;
             }
         }
+
+        for(int i= idx; i<idx+cnt; i++)
+        {
+            ans.push_back(i);
+        }
+
+
+
+
+
+
+
+
+
+
+           // for(int i=0; i<nums.size(); i++)
+        // {
+        //     if(nums[i] == target)
+        //     {
+        //         ans.push_back(i);
+        //     }
+        // }
         return ans;
     }
 };
